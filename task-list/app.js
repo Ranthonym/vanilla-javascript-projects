@@ -82,7 +82,7 @@ const addTask = (e) => {
   e.preventDefault();
 };
 
-// store task
+// store task in LS
 const storeTaskinLocalStorage = (task) => {
   let tasks;
   if (localStorage.getItem("tasks") == null) {
