@@ -1,3 +1,5 @@
+// using async/await
+
 const http = new EasyHTTP();
 
 // GET users
