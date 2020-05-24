@@ -11,6 +11,9 @@ class UI {
         <img class="img-fluid mb-2" src="${user.avatar_url}">
         <a href="${user.html_url}" target="_blank" class="btn btn-primary btn-block mb-4">View Profile</a>
       </div>
+      <div>
+      ${user.login}
+      </div>
       <div class="col-md-9">
         <span class="badge badge-primary">Public Repos: ${user.public_repos}</span>
         <span class="badge badge-secondary">Public Gists: ${user.public_gists}</span>
@@ -29,5 +32,40 @@ class UI {
   <h3 class="page-heading mb-3">Latest Repos</h3>
   <div id="repos"></div>
     `;
+  }
+
+  // show alert msg
+  showAlert(message, className) {
+    //clear existing alert
+    this.clearAlert();
+    // create a div
+    const div = document.createElement("div");
+    // add class
+    div.className = className;
+    // add text
+    div.appendChild(document.createTextNode(message));
+    // get parent
+    const container = document.querySelector(".searchContainer");
+    // get search box
+    const search = document.querySelector(".search");
+    // insert alert
+    container.insertBefore(div, search);
+
+    // timeout after 3 seconds
+    setTimeout(() => {
+      this.clearAlert();
+    }, 2000);
+  }
+
+  // clear alert msg
+  clearAlert() {
+    const currentAlert = document.querySelector(".alert");
+    if (currentAlert) {
+      currentAlert.remove();
+    }
+  }
+
+  clearProfile() {
+    this.profile.innerHTML = "";
   }
 }
