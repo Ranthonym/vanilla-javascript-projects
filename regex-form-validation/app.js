@@ -11,7 +11,7 @@ const validateName = () => {
 
 const validateZip = () => {
   const zip = document.getElementById("zip");
-  const re = /^[0-9]{5}(-[0-9]{4})?$/;
+  const re = /^[A-Z][0-9][A-Z](\s)?[0-9][A-Z][0-9]$/i;
 
   if (!re.test(zip.value)) {
     zip.classList.add("is-invalid");
